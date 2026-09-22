@@ -14,7 +14,8 @@
   <!-- ── Job Openings ─────────────────────────────────────────────
        Content matches the "Employment Opportunities with Penn
        MEDIATED" iframe embedded on the live mediated.upenn.edu/team-job-openings/
-       page — heading and status message only. The surrounding
+       page — the heading plus any live postings (or the empty-state
+     message when there are none). The surrounding
        WordPress nav/menu bar and site footer (newsletter signup,
        funder logos, social links, address) are page chrome supplied
        by the WordPress wrapper, not part of this embed, so they are
@@ -24,7 +25,26 @@
   <section class="openings reveal" aria-labelledby="openings-heading">
     <div class="openings__inner">
       <h2 id="openings-heading" class="openings__title">Employment Opportunities with Penn MEDIATED</h2>
-      <p class="openings__lead">We have no current job openings &#8212; please check back soon!</p>
+      <!-- EMPTY STATE: when no posting is live, delete the <article class="job">
+           block(s) below and restore this single line in their place:
+           <p class="openings__lead">We have no current job openings &#8212; please check back soon!</p>
+           Copy for each posting comes from the live listing; keep the Penn WorkDay
+           link pointing at the real requisition, since that is what applicants use. -->
+
+      <article class="job">
+        <h3 class="job__title">Research Director</h3>
+        <div class="job__body">
+          <p>We are hiring a <strong>Research Director</strong> to lead a <strong>New Data Science Team</strong> as we build Penn MEDIATED into a public-facing data-driven research institute for the information ecosystem. <a class="job__inline" href="https://wd1.myworkdaysite.com/en-US/recruiting/upenn/careers-at-penn/job/Amy-Gutmann-Hall/Research-Director---Penn-Center-for-Media--Technology--and-Democracy_JR00126987?q=Research" target="_blank" rel="noopener">See the full job posting and apply on Penn WorkDay</a>.</p>
+
+          <p>This is a critical role that will hire and lead a small team (a data engineer and a data visualization specialist) to turn Penn&#8217;s cutting-edge computational research and unique media data into visual stories, tools, dashboards, repeated analyses, and other data products that support pro-democracy organizations and outcomes. The goal is to develop meaningful tools and disseminate a better base of knowledge to drive societal and policy change, working with the rest of Penn MEDIATED.</p>
+
+          <p>The ideal candidate is an experienced data scientist or computational social scientist, with an interest in media and information technology and a passionate commitment to a healthier U.S. democracy.</p>
+
+          <p class="job__meta">Salary up to $125K/year; great Penn benefits; located in Amy Gutmann Hall on Penn&#8217;s campus in Philadelphia (Tu/W/Th in-person, M/F remote).</p>
+
+          <a class="job__apply" href="https://wd1.myworkdaysite.com/en-US/recruiting/upenn/careers-at-penn/job/Amy-Gutmann-Hall/Research-Director---Penn-Center-for-Media--Technology--and-Democracy_JR00126987?q=Research" target="_blank" rel="noopener">Apply on Penn WorkDay <span aria-hidden="true">&#10230;</span></a>
+        </div>
+      </article>
     </div>
   </section>
 

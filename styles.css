@@ -156,6 +156,78 @@ img { max-width: 100%; height: auto; display: block; }
    the padded __inner container. See the shared style guide's "Heading
    and body-copy positioning" note for why. */
 
+/* =============================================================================
+   Job posting
+   Used when there is a live opening; the empty-state .openings__lead above
+   stays in the markup as a comment so it can be restored when postings close.
+   Body copy here deliberately carries no measure cap either, per the note
+   directly above — this repo fills the padded column.
+   ========================================================================== */
+.job { margin-top: var(--space-600); }
+
+/* Divider only between postings, never above the first one. */
+.job + .job {
+  margin-top: var(--space-800);
+  padding-top: var(--space-800);
+  border-top: 1px solid rgba(13, 13, 12, 0.12);
+}
+
+/* A role name labels a category rather than naming a work or a person, so it
+   is sans, not serif — same call as events' .event-card__title. */
+.job__title {
+  font-family: var(--f-sans);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  letter-spacing: 0;
+  color: var(--c-red);
+  margin-bottom: var(--space-300);
+}
+
+.job__body p {
+  font-family: var(--f-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--c-dark);
+}
+.job__body p + p { margin-top: var(--space-250); }
+.job__body strong { font-weight: 600; }
+
+.job__meta { color: var(--c-gray-dark); }
+
+/* Category 1 — in-text link on a white ground: --c-red-dark at weight 500,
+   no underline, fading on hover. Colour is the affordance. */
+.job__inline {
+  color: var(--c-red-dark);
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.18s ease;
+}
+.job__inline:hover,
+.job__inline:focus-visible { opacity: 0.7; }
+
+/* Category 2 — independent link. As a standalone control it gets the hairline
+   and the trailing arrow that in-text links never carry. */
+.job__apply {
+  display: inline-block;
+  margin-top: var(--space-400);
+  font-family: var(--f-sans);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--c-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(13, 13, 12, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+.job__apply:hover,
+.job__apply:focus-visible {
+  color: var(--c-red-dark);
+  border-bottom-color: var(--c-red-dark);
+}
+.job__apply span { margin-left: var(--space-075); }
+
 @media (max-width: 480px) {
 }
 

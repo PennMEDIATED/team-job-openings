@@ -10,7 +10,24 @@ Same conventions as the [`about`](https://github.com/PennMEDIATED/about) and [`h
 
 ## Updating content
 
-When there's an open position to list, replace the `.openings__lead` paragraph ("We have no current job openings — please check back soon!") in `index.html` with the listing content, and add one `.openings__lead` (or a new `.openings__body p`, for longer copy) per posting — title, department, and a link to the application instructions. Keep the `.openings__title` heading as-is; only the status message below it needs to change. If listings grow to more than a couple of postings, consider a repeating card component (title + summary + "Apply" link) styled on the shared `.card-arrow` external-link pattern from `about`/`home`, rather than a long stack of paragraphs.
+The `.openings__title` heading never changes. Everything below it is either the empty-state line or one `<article class="job">` per open position.
+
+**Adding a posting.** Copy the `.job` block already in `index.html` and edit it in place:
+
+1. `.job__title` — the role name. Sans, not serif: a role labels a category rather than naming a work or a person, the same call as `events`' `.event-card__title`.
+2. `.job__body` — one `<p>` per paragraph of the description. `<strong>` for emphasis; do **not** paste the Unicode bold characters (𝐑𝐞𝐬𝐞𝐚𝐫𝐜𝐡) that WordPress copy sometimes carries, because screen readers read them out character by character.
+3. `.job__meta` — the one-line salary/benefits/location summary. Greyed, always last before the link.
+4. `.job__apply` — the standalone application link. Category 2 (independent link): dark, weight 600, hairline underline, trailing `⟶`. A link inside a sentence uses `.job__inline` instead — category 1, red-orange with no underline. The two are not interchangeable; see `## Hyperlinks`.
+
+Point both links at the real Penn WorkDay requisition URL — that is what applicants actually use, so a stale link is worse than no link.
+
+**When a posting closes.** Delete its `<article class="job">` block. If that was the last one, restore the empty-state line kept as a comment directly above it:
+
+```html
+<p class="openings__lead">We have no current job openings &#8212; please check back soon!</p>
+```
+
+Multiple postings stack automatically — `.job + .job` adds the divider rule and spacing, so nothing else needs changing.
 
 ## Style guide (shared across `about`, `home`, and `team-job-openings`)
 
