@@ -1,6 +1,6 @@
 # Penn MEDIATED — Job Openings
 
-The job-openings page for the [Center on Media, Technology and Democracy](https://mediated.upenn.edu). Static HTML/CSS, no build step. Mirrors the content of the live [`mediated.upenn.edu/team-job-openings/`](https://mediated.upenn.edu/team-job-openings/) embed — heading and current-openings status only, not the surrounding WordPress nav/menu bar or site footer (newsletter signup, funder logos, social links, address), which are page chrome supplied by the WordPress wrapper rather than part of the embedded content.
+The job-openings page for the [Center on Media, Technology and Democracy](https://mediated.upenn.edu). Static HTML/CSS, no build step. Mirrors the content of the live [`mediated.upenn.edu/job-openings/`](https://mediated.upenn.edu/job-openings/) embed — heading and current-openings status only, not the surrounding WordPress nav/menu bar or site footer (newsletter signup, funder logos, social links, address), which are page chrome supplied by the WordPress wrapper rather than part of the embedded content.
 
 Same conventions as the [`about`](https://github.com/PennMEDIATED/about) and [`home`](https://github.com/PennMEDIATED/home) repos — shared spacing tokens, brand colors, and fonts.
 
