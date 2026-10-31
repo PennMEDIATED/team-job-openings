@@ -187,7 +187,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .job__body p {
   font-family: var(--f-sans);
-  font-size: var(--fs-body);
+  /* A step up from --fs-body (16px -> 18px) for easier reading of long postings. */
+  font-size: calc(var(--fs-body) * 1.125);
   font-weight: 400;
   line-height: var(--lh-body);
   color: var(--c-dark);
@@ -261,7 +262,7 @@ img { max-width: 100%; height: auto; display: block; }
 .job__list li {
   position: relative;
   padding-left: var(--space-300);
-  font-size: var(--fs-body);
+  font-size: calc(var(--fs-body) * 1.125);
   line-height: var(--lh-body);
   color: var(--c-dark);
 }
@@ -290,7 +291,7 @@ img { max-width: 100%; height: auto; display: block; }
   border-collapse: collapse;
   text-align: left;
   font-family: var(--f-sans);
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   line-height: var(--lh-body);
   color: var(--c-dark);
 }
