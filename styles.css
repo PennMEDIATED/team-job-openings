@@ -176,7 +176,8 @@ img { max-width: 100%; height: auto; display: block; }
    is sans, not serif — same call as events' .event-card__title. */
 .job__title {
   font-family: var(--f-sans);
-  font-size: var(--fs-h2);
+  /* A bit under --fs-h2 (about 21px to 32px) so long role names stay compact. */
+  font-size: calc(var(--fs-h2) * 0.8);
   font-weight: 700;
   line-height: var(--lh-heading);
   letter-spacing: 0;
@@ -232,31 +233,16 @@ img { max-width: 100%; height: auto; display: block; }
 .job { scroll-margin-top: var(--space-400); }
 
 /* =============================================================================
-   Jump list — one link per open posting, directly under the page title.
-   Category 2 (independent link) styling, matching .job__apply.
+   Intro sentence — names each open posting, with in-page anchor links
+   (category 1 in-text links, via .job__inline).
    ============================================================================= */
-.openings__toc ul {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-150);
-}
-.openings__toc-link {
-  display: inline;
+.openings__intro {
   font-family: var(--f-sans);
-  font-size: var(--fs-body);
-  font-weight: 600;
-  line-height: var(--lh-body);
+  font-size: var(--fs-lede);
+  font-weight: 400;
+  line-height: var(--lh-lede);
   color: var(--c-dark);
-  border-bottom: 1px solid rgba(13, 13, 12, 0.35);
-  padding-bottom: 2px;
-  transition: color 0.15s ease, border-color 0.15s ease;
 }
-.openings__toc-link:hover,
-.openings__toc-link:focus-visible {
-  color: var(--c-red-dark);
-  border-bottom-color: var(--c-red-dark);
-}
-.openings__toc-link span { margin-left: var(--space-075); }
 
 /* =============================================================================
    Posting sub-sections: headings and bulleted lists
