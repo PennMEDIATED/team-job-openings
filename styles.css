@@ -228,7 +228,132 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .job__apply span { margin-left: var(--space-075); }
 
-@media (max-width: 480px) {
+/* In-page anchors land with breathing room above the posting title. */
+.job { scroll-margin-top: var(--space-400); }
+
+/* =============================================================================
+   Jump list — one link per open posting, directly under the page title.
+   Category 2 (independent link) styling, matching .job__apply.
+   ============================================================================= */
+.openings__toc ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-150);
+}
+.openings__toc-link {
+  display: inline;
+  font-family: var(--f-sans);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: var(--lh-body);
+  color: var(--c-dark);
+  border-bottom: 1px solid rgba(13, 13, 12, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.openings__toc-link:hover,
+.openings__toc-link:focus-visible {
+  color: var(--c-red-dark);
+  border-bottom-color: var(--c-red-dark);
+}
+.openings__toc-link span { margin-left: var(--space-075); }
+
+/* =============================================================================
+   Posting sub-sections: headings and bulleted lists
+   ============================================================================= */
+.job__subhead {
+  font-family: var(--f-sans);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: var(--lh-title);
+  color: var(--c-dark);
+  margin-top: var(--space-600);
+  margin-bottom: var(--space-200);
+}
+.job__body .job__list { margin-top: var(--space-200); }
+.job__body .job__list + p { margin-top: var(--space-250); }
+.job__list li {
+  position: relative;
+  padding-left: var(--space-300);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--c-dark);
+}
+.job__list li + li { margin-top: var(--space-150); }
+.job__list li::before {
+  content: "";
+  position: absolute;
+  left: var(--space-050);
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+}
+.job__list strong { font-weight: 600; }
+
+/* =============================================================================
+   Faculty table (Knight postdoc posting)
+   Three columns on wide screens; each row becomes a stacked card below 760px.
+   A person's name is serif 600 (names of people are serif sitewide); the name
+   link is category 5 — body colour, red-dark on hover, no arrow/underline.
+   ============================================================================= */
+.faculty-table__wrap { margin-top: var(--space-400); }
+.faculty-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--f-sans);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+  color: var(--c-dark);
+}
+.faculty-table thead th {
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-gray-dark);
+  padding: 0 var(--space-300) var(--space-150) 0;
+  border-bottom: 2px solid var(--c-red);
+}
+.faculty-table th,
+.faculty-table td {
+  vertical-align: top;
+  padding: var(--space-300) var(--space-300) var(--space-300) 0;
+}
+/* Same inset on every row so columns line up whether or not a row is striped. */
+.faculty-table tr > *:first-child { padding-left: var(--space-200); }
+.faculty-table tr > *:last-child { padding-right: var(--space-200); }
+.faculty-table tbody tr { border-bottom: 1px solid rgba(13, 13, 12, 0.12); }
+.faculty-table tbody tr:nth-child(even) { background: var(--c-light-bg); }
+
+.faculty-table__name { width: 17%; }
+.faculty-table__role { width: 28%; color: var(--c-gray-dark); }
+.faculty-table__name a {
+  font-family: var(--f-serif);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: var(--lh-title);
+  color: var(--c-dark);
+  transition: color 0.15s ease;
+}
+.faculty-table__name a:hover,
+.faculty-table__name a:focus-visible { color: var(--c-red-dark); }
+
+@media (max-width: 760px) {
+  .faculty-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .faculty-table,
+  .faculty-table tbody,
+  .faculty-table tr,
+  .faculty-table th,
+  .faculty-table td { display: block; width: 100%; }
+  .faculty-table { border-top: 2px solid var(--c-red); }
+  .faculty-table tbody tr > * { padding: 0 var(--space-200); }
+  .faculty-table tbody tr { padding: var(--space-300) 0; }
+  .faculty-table__name { margin-bottom: var(--space-100); }
+  .faculty-table__role { margin-bottom: var(--space-150); }
+  .faculty-table__name, .faculty-table__role { width: 100%; }
 }
 
 /* =============================================================================
