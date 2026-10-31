@@ -150,7 +150,10 @@
             revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      // threshold 0, not a fraction: this section holds every posting and can
+      // be several thousand px tall, so "15% visible" may never happen in the
+      // first screenful (it left the embed blank on load). Any pixel counts.
+      }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
       revealEls.forEach(function (el) { revealObserver.observe(el); });
     } else {
       revealEls.forEach(function (el) { el.classList.add('is-visible'); });
