@@ -232,6 +232,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* In-page anchors land with breathing room above the posting title. */
 .job { scroll-margin-top: var(--space-400); }
+/* Anchor clicks move focus to the posting (tabindex="-1"); no ring for that. */
+.job:focus { outline: none; }
 
 /* =============================================================================
    Intro sentence — names each open posting, with in-page anchor links

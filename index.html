@@ -194,5 +194,35 @@
       setTimeout(sendHeight, 1200);
     })();
   </script>
+  <!-- In-page anchor links when embedded. Inside the WordPress <iframe> this
+       page is sized to its full height and never scrolls itself, so a plain
+       href="#id" has nothing to scroll — and a cross-origin frame is not
+       allowed to scroll the parent page. Instead, when embedded, we send the
+       target's offset within this page as { scrollToOffset: <int> } and the
+       parent's embed snippet (see README → Embedding this page) scrolls the
+       outer page to it. Opened directly, links behave normally. -->
+  <script>
+    (function () {
+      if (window.self === window.top) return;
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var id = decodeURIComponent(a.getAttribute('href').slice(1));
+        var target = id && document.getElementById(id);
+        if (!target) return;
+        // If this frame can scroll itself (not sized to its content, e.g. a
+        // preview pane), let the browser handle the anchor as usual.
+        var root = document.scrollingElement || document.documentElement;
+        if (root.scrollHeight > window.innerHeight + 2) return;
+        e.preventDefault();
+        var margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        var y = Math.round(target.getBoundingClientRect().top + window.scrollY - margin);
+        window.parent.postMessage({ scrollToOffset: y }, '*');
+        // Move keyboard focus to the posting so tabbing continues from there.
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      });
+    })();
+  </script>
 </body>
 </html>
